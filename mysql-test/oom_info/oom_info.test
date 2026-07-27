@@ -1,0 +1,5 @@
+SELECT COUNT(*) FROM information_schema.OOM_INFO;
+SELECT SCORE IS NULL OR SCORE BETWEEN 0 AND 1000 AS valid_score,
+       ADJ IS NULL OR ADJ BETWEEN -17 AND 15 AS valid_adj,
+       SCORE_ADJ IS NULL OR SCORE_ADJ BETWEEN -1000 AND 1000 AS valid_score_adj
+  FROM information_schema.OOM_INFO;
