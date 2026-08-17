@@ -1,0 +1,26 @@
+name: Build and package OOM_INFO plugin
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
+
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    uses: lefred/mariadb-plugin-ci/.github/workflows/build-plugin.yml@v1
+    with:
+      plugin_name: oom-info
+      plugin_directory: oom_info
+      build_target: oom_info
+      plugin_library: oom_info.so
+      cmake_options: -DPLUGIN_DATE_EXTRA=DYNAMIC
+      test_suite: oom_info
+      run_tests: ${{ startsWith(github.ref, 'refs/tags/v') }}
