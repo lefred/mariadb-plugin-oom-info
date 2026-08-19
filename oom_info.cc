@@ -155,7 +155,7 @@ maria_declare_plugin(oom_info)
   0x0100,
   nullptr,
   nullptr,
-  "1.0",
+  "0.2.0",
   MariaDB_PLUGIN_MATURITY_BETA
 }
 maria_declare_plugin_end;
